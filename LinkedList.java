@@ -341,6 +341,22 @@ public class LinkedList {
 		return tail;
 	}
 	
+	// Gets the first node with the inputed data value
+	public Node getNode(int data) {
+		if (this.isEmpty()) {
+			return null;
+		}
+		
+		Node N = head;
+		while (N != null) {
+			if (N.data == data) {
+				return N;
+			}
+			N = N.next;
+		}	
+		return null;
+	}
+	
 	// Remove duplicates using a storage buffer in an unsorted LinkedList
 	public void removeDuplicates() {
 		int maximum = 100;
@@ -391,14 +407,26 @@ public class LinkedList {
 	}
 	
 	// Returns the Kth to last
-	public void returnKthLast() {
+	public Node returnKthLast(int k) {
+		Node pointer1 = head;
+		Node pointer2 = head;
 		
-	
+		for (int i = 0; i < k; i++) {
+			pointer1 = pointer1.next;
+		}
+		
+		while (pointer1.next != null) {
+			pointer1 = pointer1.next;
+			pointer2 = pointer2.next;
+		}
+		return pointer2;
 	}
 	
-	
-	
-	
-	
+	// Deletes a node in the middle of the list (not head or tail) accessing only that Node
+	public void deleteNodeFromMiddle(Node N) {
+		// Copy the node from its next
+		N.data = N.next.data;
+		N.next = N.next.next;
+	}	
 }
 

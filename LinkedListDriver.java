@@ -63,8 +63,15 @@ public class LinkedListDriver {
 		/* Removes the duplicates */
 		list5.removeDuplicatesWithoutBuffer();
 		
-		System.out.println(list5);
+		System.out.println(list5); // [2, 4, 6]
 		
+		/* Returns the kth from last Node of the LinkedList */
+		System.out.println(list5.returnKthLast(1)); // Should be 4
+		
+		/* Deletes a given Node, using only that Node */
+		Node nodeToRemove = list5.getNode(4);
+		list5.deleteNodeFromMiddle(nodeToRemove);
+		System.out.println(list5); // Should be [2, 6]		
 		
 		
 		
